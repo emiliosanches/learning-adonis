@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello Adonis</title>
+        {{ style('home') }}
+    </head>
+    <body>
+        <section>
+            <div class="logo"></div>
+            <h1 class="title">Hello, Adonis!</h1>
+            <div class="subtitle">
+                <p>This is a project with the only purpose of learning about AdonisJS.</p>
+                <p>
+                    This project is a simple blog. You can write anything and see what other people write.
+                </p>
+                <p>This blog has either the webpages and the API versions. To access the API version, just add <code>/api/</code> at the beginning of the URI. In example:</p>
+                <code>http://helloadonis.com/api/posts</code>
+            </div>
+            <a id="go-to-posts" href="{{route('posts')}}">Ir para os posts</button>
+        </section>
+    </body>
+</html>

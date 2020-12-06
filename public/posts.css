@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    padding: 16px;
+    background-color: #220052;
+}
+
+header form {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 16px;
+}
+
+header form div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 8px;
+}
+
+header form label {
+    color: white;
+    font-size: 0.85rem;
+    margin-right: 16px;
+}
+
+header form div input, header form div textarea {
+    flex: 0.9;
+    border-radius: 4px;
+    padding: 5px 6px;
+}
+
+header form input#send-button {
+    width: 16vw;
+    height: 4vw;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    align-self: flex-end;
+}
+
+main {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+main article {
+    width: 100%;
+    background-color: #DFDFDF;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 4px 0px black;
+    margin-bottom: 8px;
+}
+
+main article p {
+    white-space: pre-line;
+}
