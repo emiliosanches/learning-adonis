@@ -1,24 +1,23 @@
 'use strict'
 
-const fs = require('fs');
-const path = require('path');
-
 const Post = use('App/Models/Post');
 class PostController {
-    index({ view }) {
-        const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '..', '..', 'database.json')));
+    async index({ view }) {
+        
+        const posts = await Post.all();
 
-        return view.render('posts', { posts: data });
+        return view.render('posts', { posts: posts.rows });
     }
 
     async create({ request, response }) {
         const reqData = request.only(['title', 'body']);
 
-        const databaseData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '..', '..', 'database.json')));
+        const post = new Post();
 
-        databaseData.push(reqData);
+        post.title = reqData.title;
+        post.body = reqData.body;
 
-        fs.writeFileSync(path.resolve(__dirname, '..', '..', '..', 'database.json'), JSON.stringify(databaseData));
+        await post.save();
 
         response.redirect('/posts', false)
     }
