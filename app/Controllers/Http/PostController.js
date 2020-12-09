@@ -2,11 +2,14 @@
 
 const Post = use('App/Models/Post');
 class PostController {
-    async index({ view }) {
-        
-        const posts = await Post.all();
+    async index({ request, view }) {
+        const query = request.get();
 
-        return view.render('posts', { posts: posts.rows });
+        const pageNumber = query?.p || 1;
+
+        const posts = await Post.query().orderBy('created_at', 'desc').paginate(pageNumber, 5);
+        console.log(posts)
+        return view.render('posts', { posts });
     }
 
     async indexApi({ response }) {

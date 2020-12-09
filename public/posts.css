@@ -25,6 +25,7 @@ header {
     width: 100%;
     padding: 16px;
     background-color: #220052;
+    display: flex;
 }
 
 header form {
@@ -33,6 +34,7 @@ header form {
     flex-direction: column;
     align-items: center;
     margin-left: 16px;
+    margin-right: 20px;
 }
 
 header form div {
@@ -63,9 +65,47 @@ header form input#send-button {
     align-self: flex-end;
 }
 
+header #pages {
+    align-self: flex-end;
+    justify-content: center;
+    display: flex;
+    flex: 1;
+}
+
+header #pages a {
+    height: 30px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    margin: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+header #pages #active {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: default;
+    pointer-events: none;
+}
+
+header #pages #back {
+    margin-right: auto; 
+}
+
+header #pages #forward {
+    margin-left: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
 main {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     width: 100%;
 }
 

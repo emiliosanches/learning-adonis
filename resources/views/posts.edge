@@ -18,10 +18,30 @@
 
                 <input type="submit" id="send-button">
             </form>
+
+            <div id="pages">
+                @unless(posts.pages.page == 1)
+                    <a href="?p={{posts.pages.page - 1}}" id="back">&lt;</a>
+                @else
+                    <a id="back" class="invisible"></a>
+                @endunless
+
+                @each(pageNumber in range(1, posts.pages.lastPage + 1))
+                    <a href="?p={{pageNumber}}" id="{{ pageNumber == posts.pages.page ? "active" : "" }}">
+                        {{ pageNumber }}
+                    </a>
+                @endeach
+
+                @if(posts.pages.page < posts.pages.lastPage)
+                    <a href="?p={{posts.pages.page + 1}}" id="forward">&gt;</a>
+                @else
+                    <a id="forward" class="invisible"></a>
+                @endif
+            </div>
         </header>
 
         <main>
-            @each(post in posts)
+            @each(post in posts.rows)
                 <article>
                     <h1>{{post.title}}</h1>
                     <p>{{post.body}}</p>
