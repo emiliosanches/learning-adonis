@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const Post = use('App/Models/Post');
 class PostController {
     index({ view }) {
         const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', '..', '..', 'database.json')));
