@@ -2,7 +2,6 @@
 
 class HomeController {
     index({ view }) {
-        console.log('Accessed home')
         return view.render('home')
     }
 }
