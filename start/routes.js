@@ -19,3 +19,9 @@ const Route = use('Route')
 Route.get('/', 'HomeController.index');
 Route.get('/posts', 'PostController.index').as('posts');
 Route.post('/posts/create', 'PostController.create').as('create-post');
+
+Route.group(function () {
+    Route.get('/posts', 'PostController.indexApi');
+    Route.post('/posts/create', 'PostController.createApi');
+    Route.get('/posts/:id', 'PostController.getApi');
+}).prefix('/api/v1');
